@@ -6,16 +6,20 @@ import time
 
 
 browser = webdriver.Chrome()
-word = "エケベリア"
+word = ["エケベリア", "不夜城", "ブルーバニーカクタス"]
 url = "https://www.mercari.com/jp/search/?sort_order=created_desc&keyword="+ word +"&category_root=&brand_name=&brand_id=&size_group=&price_min=&price_max=&status_on_sale=1"
 time.sleep(3)
-browser.get(url)
+
 posts = browser.find_elements_by_css_selector(".items-box")
 time.sleep(1)
 sum = 0
 cnt = 0
 max = 0
 min = 99999999
+
+
+
+browser.get(url)
 
 for post in posts:
     title=post.find_element_by_css_selector("h3.items-box-name").text
